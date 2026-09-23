@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terminal Antofagasta — Inducción de Seguridad</title>
+<title>Terminal Logístico Antofagasta — Inducción de Seguridad</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -149,6 +149,8 @@
     padding:22px;margin:0 22px 8px;
   }
   .formcard h2{font-family:'Barlow Condensed';font-size:23px;margin:0 0 2px;color:var(--navy);}
+  .formcard h2 .en{display:block;font-family:'Inter';font-weight:500;font-size:13px;color:var(--cyan);margin-top:2px;}
+  .formcard .sub .en{display:block;color:var(--cyan);font-size:12px;margin-top:2px;}
   .formcard .sub{font-size:13px;color:var(--ink-soft);margin:0 0 18px;}
   .field{margin-bottom:14px;}
   .field label{display:block;font-size:12.5px;font-weight:600;color:var(--ink);margin-bottom:5px;}
@@ -232,7 +234,7 @@ const GOOGLE_FORM_TIPO_LABELS = {
   Visita: 'Visita / Visitor',
   Contratista: 'Contratista / Contractor'
 };
-const GOOGLE_FORM_CONSENT_TEXT = "Declaro que he leído y comprendido las normas de seguridad del Terminal Antofagasta / D&C Logística, y me comprometo a cumplirlas. / I declare that I have read and understood the safety rules of Terminal Antofagasta / D&C Logística, and I commit to complying with them.";
+const GOOGLE_FORM_CONSENT_TEXT = "Declaro que he leído y comprendido las normas de seguridad del Terminal Logístico Antofagasta / D&C Logística, y me comprometo a cumplirlas. / I declare that I have read and understood the safety rules of Antofagasta Logistics Terminal / D&C Logística, and I commit to complying with them.";
 
 // Real hidden-form submission into an invisible iframe: mimics an actual
 // person submitting the Google Form, entirely in the background.
@@ -381,22 +383,22 @@ function renderForm(){
         <div class="brand"><img src="${LOGO}" alt="D&C Logística"><div class="word">D&C<small>División Logística</small></div></div>
         <div class="tag">HSEQ</div>
       </div>
-      <h1>Bienvenido a<br><em>Terminal Antofagasta</em></h1>
-      <p class="en">Welcome to Terminal Antofagasta — general safety instructions</p>
+      <h1>Bienvenido a<br><em>Terminal Logístico Antofagasta</em></h1>
+      <p class="en">Welcome to Antofagasta Logistics Terminal — general safety instructions</p>
       <p class="lead">Antes de ingresar a nuestras instalaciones, lee esta inducción y confirma tus datos. Es obligatorio para visitantes, contratistas y transportistas.</p>
       <div class="addr">📍 Avenida Ruta del Cobre #741, Lote 5 — Antofagasta</div>
     </div>
 
     <section style="padding-top:26px;">
-      <p class="eyebrow">Mapa Terminal Antofagasta<span class="en">Antofagasta site plant</span></p>
-      <img class="mapimg" src="${MAP_IMG}" alt="Mapa Terminal Antofagasta">
+      <p class="eyebrow">Mapa Terminal Logístico Antofagasta<span class="en">Antofagasta Logistics Terminal map</span></p>
+      <img class="mapimg" src="${MAP_IMG}" alt="Mapa Terminal Logístico Antofagasta">
       <p class="mapcap">Zonas señalizadas con riesgo — revisa el detalle en cada sector antes de ingresar.</p>
     </section>
 
     <div class="divider"></div>
 
     <section>
-      <p class="eyebrow">Reglas de Oro<span class="en">Golden Rules — for your safety</span></p>
+      <p class="eyebrow">Reglas de Oro<span class="en">Golden Rules</span></p>
       <ol class="rules" style="list-style:none;">
         ${[
           ['Siempre informaré los incidentes.','I will always report incidents.'],
@@ -418,12 +420,12 @@ function renderForm(){
     <section>
       <p class="eyebrow">Es obligatorio<span class="en">Mandatory on site</span></p>
       <div class="grid2">
-        <div class="icard mando"><div class="ico">${ICONS.ppe}</div><div class="t">Chaleco, casco y calzado de seguridad al bajar del camión<span class="en">Vest, helmet & safety shoes off-truck</span></div></div>
-        <div class="icard mando"><div class="ico">${ICONS.distance}</div><div class="t">Peatones a mínimo 2 m de cargas o vehículos<span class="en">Pedestrians 2 m from loads/vehicles</span></div></div>
+        <div class="icard mando"><div class="ico">${ICONS.ppe}</div><div class="t">Chaleco, casco y calzado de seguridad al bajar del camión<span class="en">Vest, helmet and safety boots when getting off the truck</span></div></div>
+        <div class="icard mando"><div class="ico">${ICONS.distance}</div><div class="t">Peatones a mínimo 2 m de cargas o vehículos<span class="en">Pedestrians at least 2 m from loads/vehicles</span></div></div>
         <div class="icard mando"><div class="ico">${ICONS.crossing}</div><div class="t">Transitar por pasos peatonales<span class="en">Use pedestrian crossings</span></div></div>
         <div class="icard mando"><div class="ico">${ICONS.speed20}</div><div class="t">Límite de velocidad: 20 km/hr<span class="en">Speed limit: 20 km/h</span></div></div>
-        <div class="icard mando"><div class="ico">${ICONS.forklift}</div><div class="t">Grúa horquilla: presta atención a su tránsito<span class="en">Forklift: pay attention to its traffic</span></div></div>
-        <div class="icard mando"><div class="ico">${ICONS.reachStacker}</div><div class="t">Porta contenedor: presta atención a su tránsito<span class="en">Reach stacker: pay attention to its traffic</span></div></div>
+        <div class="icard mando"><div class="ico">${ICONS.forklift}</div><div class="t">Grúa horquilla: presta atención a su tránsito<span class="en">Forklift: watch out for its traffic</span></div></div>
+        <div class="icard mando"><div class="ico">${ICONS.reachStacker}</div><div class="t">Porta contenedor: presta atención a su tránsito<span class="en">Reach stacker: watch out for its traffic</span></div></div>
       </div>
     </section>
 
@@ -481,10 +483,10 @@ function renderForm(){
         [ICONS.extinguisher,"No bloquear extintores","Don't block fire extinguishers"],
         [ICONS.engineOff,'Apagar motor después de estacionar','Turn off engine after parking'],
         [ICONS.handbrake,'Activar el freno de mano','Set the parking brake'],
-        [ICONS.wedge,'Utilizar cuñas','Use wedges'],
+        [ICONS.wedge,'Utilizar cuñas','Use wheel chocks'],
         [ICONS.noOverload,"No sobrecargue el vehículo","Don't overload the vehicle"],
         [ICONS.truckUnloading,'No bajar del camión mientras lo están cargando','Do not get off the truck while it is being loaded'],
-        [ICONS.roleCrossing,'Mantener las líneas peatonales despejadas','Keep clear pedestrian lines'],
+        [ICONS.roleCrossing,'Mantener las líneas peatonales despejadas','Keep pedestrian lines clear'],
       ].map(r=>`<div class="instr"><span class="ico">${r[0]}</span><span class="t">${r[1]}<span class="en">${r[2]}</span></span></div>`).join('')}
     </section>
 
@@ -500,7 +502,7 @@ function renderForm(){
     <section>
       <p class="eyebrow">Prohibido<span class="en">Prohibited</span></p>
       <div class="grid2">
-        <div class="icard stop"><div class="ico">${ICONS.noSuspended}</div><div class="t">Transitar bajo carga suspendida<span class="en">Transit under suspended loads</span></div></div>
+        <div class="icard stop"><div class="ico">${ICONS.noSuspended}</div><div class="t">Transitar bajo carga suspendida<span class="en">Walking under suspended loads</span></div></div>
         <div class="icard stop"><div class="ico">${ICONS.noPhone}</div><div class="t">Usar celular en movimiento<span class="en">Cell phone use while moving</span></div></div>
         <div class="icard stop"><div class="ico">${ICONS.noSmoking}</div><div class="t">Fumar fuera de sectores autorizados<span class="en">Smoking outside authorized areas</span></div></div>
         <div class="icard stop"><div class="ico">${ICONS.noOverload}</div><div class="t">Sobrecargar el vehículo<span class="en">Overloading the vehicle</span></div></div>
@@ -516,7 +518,7 @@ function renderForm(){
           [ICONS.hzVehicle,'Impacto de vehículo','Vehicle impact'],
           [ICONS.hzRollover,'Choque, colisión o volcamiento de equipos móviles','Crash, collision or overturning of mobile equipment'],
           [ICONS.hzContainers,'Aplastamiento por maniobras de contenedores','Crushing by container maneuvers'],
-          [ICONS.hzLoading,'Aplastamiento por maniobras de carga','Crushing due to loading maneuvers'],
+          [ICONS.hzLoading,'Aplastamiento por maniobras de carga','Crushing by loading maneuvers'],
           [ICONS.hzEnergy,'Liberación de energía','Energy release'],
           [ICONS.hzLifting,'Maniobras de levante','Lifting maneuvers'],
           [ICONS.hzFall,'Caída en trabajos de altura','Fall while working at height'],
@@ -528,8 +530,8 @@ function renderForm(){
     <div class="divider"></div>
 
     <div class="formcard">
-      <h2>Registro de ingreso</h2>
-      <p class="sub">Entry registration — completa tus datos para continuar</p>
+      <h2>Registro de ingreso<span class="en">Entry registration</span></h2>
+      <p class="sub">Completa tus datos para continuar<span class="en">Please fill in your details to continue</span></p>
 
       <div class="field">
         <label>Nombre completo <span class="en">Full name</span></label>
@@ -557,8 +559,8 @@ function renderForm(){
       <div class="consent-box" id="consent-box">
         <input type="checkbox" id="f-consent">
         <div class="t">
-          Declaro que leí y entendí las reglas, obligaciones, prohibiciones y riesgos de Terminal Antofagasta, y me comprometo a respetarlos.
-          <span class="en">I declare that I have read and understood the rules, obligations, prohibitions and hazards of Terminal Antofagasta, and I commit to respecting them.</span>
+          Declaro que leí y entendí las reglas, obligaciones, prohibiciones y riesgos de Terminal Logístico Antofagasta, y me comprometo a respetarlos.
+          <span class="en">I declare that I have read and understood the rules, obligations, prohibitions and hazards of Antofagasta Logistics Terminal, and I commit to respecting them.</span>
         </div>
       </div>
 
@@ -566,7 +568,7 @@ function renderForm(){
       <div class="err" id="form-err"></div>
     </div>
 
-    <footer><img src="${LOGO}" alt="D&C">D&C Logística · HSEQ · Terminal Antofagasta<br>Tus datos se usan solo para control de acceso y auditorías de tri norma.<br><span style="opacity:.7;">Iconografía: Font Awesome Free (CC BY 4.0) y Google Material Symbols (Apache 2.0)</span></footer>
+    <footer><img src="${LOGO}" alt="D&C">D&C Logística · HSEQ · Terminal Logístico Antofagasta<br>Tus datos se usan solo para control de acceso y auditorías de tri norma.<br><span style="opacity:.7;">Iconografía: Font Awesome Free (CC BY 4.0) y Google Material Symbols (Apache 2.0)</span></footer>
   </div>
   `;
 
@@ -629,11 +631,11 @@ function renderConfirm(record, key){
     <div class="confirm">
       <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
       <h2>Ingreso registrado</h2>
-      <p>Gracias, ${esc(record.nombre)}. Tu registro de inducción de seguridad quedó guardado. Ya puedes ingresar a Terminal Antofagasta.</p>
-      <p class="en">Thanks, your safety induction record has been saved. You may now enter Terminal Antofagasta.</p>
+      <p>Gracias, ${esc(record.nombre)}. Tu registro de inducción de seguridad quedó guardado. Ya puedes ingresar a Terminal Logístico Antofagasta.</p>
+      <p class="en">Thanks, your safety induction record has been saved. You may now enter Antofagasta Logistics Terminal.</p>
       <div class="id">${esc(key)}</div>
     </div>
-    <footer><img src="${LOGO}" alt="D&C">D&C Logística · HSEQ · Terminal Antofagasta</footer>
+    <footer><img src="${LOGO}" alt="D&C">D&C Logística · HSEQ · Terminal Logístico Antofagasta</footer>
   </div>
   `;
 }
@@ -646,7 +648,7 @@ async function renderAdmin(){
   app.innerHTML = `
     <div class="admin-wrap">
       <div class="admin-head">
-        <div class="title-row"><img src="${LOGO}" alt="D&C"><h1>Registros de ingreso — Terminal Antofagasta</h1></div>
+        <div class="title-row"><img src="${LOGO}" alt="D&C"><h1>Registros de ingreso — Terminal Logístico Antofagasta</h1></div>
       </div>
       <div id="admin-body">
         <div class="empty">
