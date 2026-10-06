@@ -233,7 +233,8 @@ const GOOGLE_FORM_TIPO_LABELS = {
   Transportista: 'Transportista / Carrier',
   Visita: 'Visita / Visitor',
   Contratista: 'Contratista / Contractor',
-  'Personal D&C': 'Personal D&C / D&C Staff'
+  'Personal D&C': 'Personal D&C / D&C Staff',
+  Cliente: 'Cliente / Customer'
 };
 const GOOGLE_FORM_CONSENT_TEXT = "Declaro que he leído y comprendido las normas de seguridad del Terminal Logístico Antofagasta / D&C Logística, y me comprometo a cumplirlas. / I declare that I have read and understood the safety rules of Antofagasta Logistics Terminal / D&C Logística, and I commit to complying with them.";
 
@@ -546,10 +547,11 @@ function renderForm(){
         <div class="field">
           <label>Tipo <span class="en">Role</span></label>
           <select id="f-tipo">
-            <option value="Transportista">Transportista / Carrier</option>
-            <option value="Visita">Visita / Visitor</option>
+            <option value="Cliente">Cliente / Customer</option>
             <option value="Contratista">Contratista / Contractor</option>
             <option value="Personal D&C">Personal D&C / D&C Staff</option>
+            <option value="Transportista">Transportista / Carrier</option>
+            <option value="Visita">Visita / Visitor</option>
           </select>
         </div>
       </div>
