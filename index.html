@@ -232,7 +232,8 @@ const GOOGLE_FORM_ENTRIES = {
 const GOOGLE_FORM_TIPO_LABELS = {
   Transportista: 'Transportista / Carrier',
   Visita: 'Visita / Visitor',
-  Contratista: 'Contratista / Contractor'
+  Contratista: 'Contratista / Contractor',
+  'Personal D&C': 'Personal D&C / D&C Staff'
 };
 const GOOGLE_FORM_CONSENT_TEXT = "Declaro que he leído y comprendido las normas de seguridad del Terminal Logístico Antofagasta / D&C Logística, y me comprometo a cumplirlas. / I declare that I have read and understood the safety rules of Antofagasta Logistics Terminal / D&C Logística, and I commit to complying with them.";
 
@@ -548,6 +549,7 @@ function renderForm(){
             <option value="Transportista">Transportista / Carrier</option>
             <option value="Visita">Visita / Visitor</option>
             <option value="Contratista">Contratista / Contractor</option>
+            <option value="Personal D&C">Personal D&C / D&C Staff</option>
           </select>
         </div>
       </div>
@@ -580,6 +582,18 @@ function renderForm(){
   const box = document.getElementById('consent-box');
   const btn = document.getElementById('submit-btn');
   const err = document.getElementById('form-err');
+
+  const DYC_EMPRESA = 'D&C Servicios Logísticos';
+  function syncEmpresa(){
+    if(tipo.value === 'Personal D&C'){
+      empresa.value = DYC_EMPRESA; empresa.readOnly = true;
+    } else {
+      if(empresa.readOnly){ empresa.value = ''; }
+      empresa.readOnly = false;
+    }
+  }
+  tipo.addEventListener('change', syncEmpresa);
+  syncEmpresa();
 
   box.addEventListener('click', (e)=>{
     if(e.target !== consent) consent.checked = !consent.checked;
