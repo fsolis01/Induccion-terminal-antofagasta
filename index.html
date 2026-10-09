@@ -193,6 +193,15 @@
   .confirm p{color:var(--ink-soft);font-size:14px;max-width:38ch;margin:0 auto;}
   .confirm .en{color:var(--cyan);font-size:13px;margin-top:6px;}
   .confirm .id{margin-top:22px;font-size:11.5px;color:#9AA9B5;font-family:monospace;}
+  .confirm .eppbox{margin:20px auto 0;max-width:360px;text-align:center;padding:0;}
+  .confirm .eppbox .ft{font-family:'Barlow Condensed';font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-bottom:2px;}
+  .confirm .eppbox .ft .en{display:block;font-size:12.5px;color:var(--cyan);margin:0;letter-spacing:.02em;text-transform:none;font-family:'Inter',sans-serif;font-weight:500;}
+  .confirm .eppgrid{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 8px;margin-top:12px;}
+  .confirm .eppitem{text-align:center;width:104px;}
+  .confirm .eppitem .chip{display:block;width:46px;height:46px;margin:0 auto 4px;}
+  .confirm .eppitem .chip svg{width:100%;height:100%;display:block;}
+  .confirm .eppitem .n{font-size:11.5px;font-weight:700;color:var(--navy);line-height:1.15;}
+  .confirm .eppitem .n i{display:block;font-style:normal;font-weight:500;color:var(--cyan);}
   .confirm .ficha{margin:18px auto 0;max-width:360px;text-align:left;border:2px solid var(--cyan);border-radius:12px;padding:12px 16px;background:#F5FAFD;}
   .confirm .ficha .ft{font-family:'Barlow Condensed';font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;color:var(--cyan);margin-bottom:6px;}
   .confirm .ficha .row{display:block;padding:7px 0;border-top:1px solid #DCE8F0;font-size:16px;line-height:1.3;color:var(--navy);}
@@ -649,6 +658,32 @@ function renderForm(){
   });
 }
 
+// EPP obligatorios según el Tipo (todos: chaleco, calzado, casco y lentes)
+const EPP_LABELS = {
+  eppVest:['Chaleco reflectante','Reflective vest'],
+  eppBoots:['Calzado de seguridad','Safety boots'],
+  eppHelmet:['Casco','Helmet'],
+  eppGoggles:['Lentes de seguridad','Safety goggles'],
+  eppEar:['Protección auditiva','Hearing protection'],
+  eppGloves:['Guantes','Gloves']
+};
+const EPP_BASE = ['eppVest','eppBoots','eppHelmet','eppGoggles'];
+const EPP_FULL = EPP_BASE.concat(['eppEar','eppGloves']);
+const EPP_BY_TIPO = {
+  'Cliente': EPP_BASE,
+  'Visita': EPP_BASE,
+  'Contratista': EPP_FULL,
+  'Personal D&C': EPP_FULL,
+  'Transportista': EPP_FULL
+};
+function eppBoxHtml(tipo){
+  const list = EPP_BY_TIPO[tipo] || EPP_BASE;
+  return `<div class="eppbox">
+        <div class="ft">EPP obligatorios para tu rol<span class="en">Required PPE for your role</span></div>
+        <div class="eppgrid">${list.map(k=>`<div class="eppitem"><span class="chip">${ICONS[k]}</span><div class="n">${EPP_LABELS[k][0]}<i>${EPP_LABELS[k][1]}</i></div></div>`).join('')}</div>
+      </div>`;
+}
+
 function renderConfirm(record, key){
   const app = document.getElementById('app');
   app.innerHTML = `
@@ -667,6 +702,7 @@ function renderConfirm(record, key){
         <div class="row"><b>Consentimiento / Consent</b><span>Aceptado / Accepted</span></div>
         <div class="row"><b>Fecha y hora / Date &amp; time</b><span>${esc(new Date(record.timestamp).toLocaleString('es-CL',{timeZone:'America/Santiago',hour12:false}))}</span></div>
       </div>
+      ${eppBoxHtml(record.tipo)}
       <div class="id">${esc(key)}</div>
     </div>
     <footer><img src="${LOGO}" alt="D&C">D&C Logística · HSEQ · Terminal Logístico Antofagasta</footer>
